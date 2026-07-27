@@ -1,0 +1,62 @@
+project_name = "satisfactory"
+version = "0.1.0"
+port = 3000
+build_dir = "./"
+app_type = "TanStack Start"
+build_command = "pnpm run build"
+install_command = "pnpm install"
+target = "TanStack Start"
+version_targets = ["package.json"]
+version_domains = []
+ignore_paths = []
+watch_ignore_paths = []
+versioning_disabled = []
+release_disabled = []
+
+[[services]]
+name = "satisfactory"
+target = "TanStack Start"
+branch = "main"
+port = 3000
+root_directory = "./"
+restart_policy = "on_failure"
+restart_policy_max_failure_count = 10
+start_wrapper = "pm2"
+force_run_from_root = false
+version_targets = ["package.json"]
+
+[services.commands]
+install = "pnpm install"
+build = "pnpm run build"
+check = "pnpm run check"
+format = "pnpm run format"
+generate-routes = "pnpm run generate-routes"
+lint = "pnpm run lint"
+preview = "pnpm run preview"
+test = "pnpm run test"
+"test:watch" = "pnpm run test:watch"
+
+[services.deploy]
+provider = "kubernetes"
+
+[services.deploy.destinations]
+
+[services.deploy.envs.production]
+namespace = "satisfactory"
+replicas = 1
+health = []
+
+[services.deploy.envs.production.kubernetes]
+workload = "satisfactory"
+service = "satisfactory"
+selector = "app=satisfactory"
+
+[linear.release]
+enabled = false
+
+[github]
+repository = "floris-xlx/satisfactory"
+
+[github.release_branch]
+enabled = true
+naming_template = "releases/{SERVICE_NAME}-{VERSION}"
