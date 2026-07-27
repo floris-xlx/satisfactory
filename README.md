@@ -1,5 +1,7 @@
 # SatisFactory
 
+current version: `0.1.1`
+
 Industrial offline factory planner for **Satisfactory-style** production chains and conveyor belt orientation.
 
 Built with **TanStack Start**, **React**, **TypeScript**, **Tailwind CSS**, **shadcn-style UI**, **Zustand**, **@xyflow/react**, and **Vitest**.
