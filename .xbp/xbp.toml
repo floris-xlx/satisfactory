@@ -15,7 +15,7 @@ release_disabled = []
 
 [[services]]
 name = "satisfactory"
-target = "TanStack Start"
+target = "nodejs"
 branch = "main"
 port = 3000
 root_directory = "./"
@@ -28,6 +28,7 @@ version_targets = ["package.json"]
 [services.commands]
 install = "pnpm install"
 build = "pnpm run build"
+dev = "pnpm run dev"
 check = "pnpm run check"
 format = "pnpm run format"
 generate-routes = "pnpm run generate-routes"
